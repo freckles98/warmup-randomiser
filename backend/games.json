@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Freeze Dance",
+    "grades": "primary",
+    "classSize":"Any",
+    "category": "Movement",
+    "description": "Dance to music and freeze when it stops!",
+    "equipment": ["Music player"]
+  },
+  {
+    "name": "Simon Says",
+    "grades": "Any",
+    "classSize":"Small",
+    "category": "Command-based",
+    "description": "Follow instructions only if 'Simon says' first.",
+    "equipment": []
+  }
+]
