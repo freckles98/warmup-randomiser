@@ -12,16 +12,12 @@ const games = require("./games.json");
 
 // API endpoint to fetch a random game based on criteria
 app.get("/random-game", (req, res) => {
-  const { grades, classSize, equipment } = req.query;
-  console.log("Hello, world!");
-  console.log(grades);
-  console.log(classSize);
-  console.log(equipment);
+  const { grades, classSize } = req.query;
+
   // Filter games based on input
   let filteredGames = games.filter(game => 
-    (game.grades== grades || game.grades == 'Any') //&&
-    //(games.classSize == classSize || games.classSize == 'Any') //&&
-    //((games.equipment.length > 0 && equipment == 'True') || (games.equipment.length = 0 && equipment == 'False'))
+    (game.grades== grades || game.grades == 'Any') &&
+    (games.classSize == classSize || games.classSize == 'Any') 
   );
 
   // Pick a random game

@@ -2,14 +2,12 @@ import { useState } from "react";
 import GameDisplay from "./GameDisplay";
 import GradeSelector from "./RadioButton";
 import ClassSizeSelector from "./RadioButton";
-import EquipmentSelector from "./RadioButton";
 
 
 const Randomizer = () => {
   const [selectedGame, setSelectedGame] = useState(null);
   const [grade, setGrade] = useState("");
   const [classSize, setClassSize] = useState("");
-  const [equipment, setEquipment] = useState("");
 
   const handleGradeSelection = (selectedGrade) => {
     console.log("Selected grade:", selectedGrade);
@@ -21,10 +19,6 @@ const Randomizer = () => {
     setClassSize(selectedClassSize);
   };
 
-  const handleEquipmentSelection = (selectedEquipment) => {
-    console.log("Selected equipment:", selectedEquipment);
-    setEquipment(selectedEquipment);
-  };
 
   const getRandomGame = async () => {
     if (!grade) {
@@ -35,18 +29,16 @@ const Randomizer = () => {
       alert("Please select a class size.");
       return;
     }
-    if (!equipment) {
-      alert("Please select a equipment.");
-      return;
-    }
+
+
     const gradeMap = {
-      "Grade 1-3": "primary",
-      "Grade 4-5": "secondary",
-      "High School": "high"
+      "Grade 1-3": "Primary",
+      "Grade 4-5": "Secondary",
+      "High School": "High"
     };
   
     try {
-      const response = await fetch(`http://localhost:5001/random-game?grades=${encodeURIComponent(gradeMap[grade])}&classSize=${encodeURIComponent(classSize)}&equipment=${encodeURIComponent(equipment)}`);
+      const response = await fetch(`http://localhost:5001/random-game?grades=${encodeURIComponent(gradeMap[grade])}&classSize=${encodeURIComponent(classSize)}`);
       
       if (!response.ok) {
         throw new Error("No game found");
@@ -73,11 +65,6 @@ const Randomizer = () => {
           title="Select Class Size"
           options={["Small", "Medium", "Large"]}
           onSelect={handleClassSizeSelection}
-        />
-        <EquipmentSelector
-          title="Select whether equipment is needed"
-          options={["True", "False"]}
-          onSelect={handleEquipmentSelection}
         />
 
         <button className="button" onClick={getRandomGame}>
