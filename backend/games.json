@@ -1,18 +1,31 @@
 [
   {
     "name": "Freeze Dance",
-    "grades": "primary",
-    "classSize":"Any",
+    "grades": "Primary",
+    "classSize": "Any",
     "category": "Movement",
     "description": "Dance to music and freeze when it stops!",
-    "equipment": ["Music player"]
+    "equipment": [
+      "Music player"
+    ],
+    "funFactor": 4
   },
   {
     "name": "Simon Says",
     "grades": "Any",
-    "classSize":"Small",
+    "classSize": "Small",
     "category": "Command-based",
     "description": "Follow instructions only if 'Simon says' first.",
-    "equipment": []
+    "equipment": [],
+    "funFactor": 3
+  },
+  {
+    "name": "Happiness Game",
+    "grades": "Primary",
+    "classSize": "Medium",
+    "category": "Fun",
+    "description": "Children are happy",
+    "equipment": "none",
+    "funFactor": "5"
   }
 ]

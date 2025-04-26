@@ -2,12 +2,15 @@ import { useState } from "react";
 import GameDisplay from "./GameDisplay";
 import GradeSelector from "./RadioButton";
 import ClassSizeSelector from "./RadioButton";
+import AddGame from "./AddGame";
 
 
 const Randomizer = () => {
   const [selectedGame, setSelectedGame] = useState(null);
   const [grade, setGrade] = useState("");
   const [classSize, setClassSize] = useState("");
+  const [showAddGame, setShowAddGame] = useState(false);
+
 
   const handleGradeSelection = (selectedGrade) => {
     console.log("Selected grade:", selectedGrade);
@@ -19,6 +22,13 @@ const Randomizer = () => {
     setClassSize(selectedClassSize);
   };
 
+  const handleOpenAddGame = () => {
+    setShowAddGame(true);
+  };
+
+  const handleCloseAddGame = () => {
+    setShowAddGame(false);
+  };
 
   const getRandomGame = async () => {
     if (!grade) {
@@ -53,7 +63,19 @@ const Randomizer = () => {
   };
 
   return (
+  
     <div className="container">
+         <button onClick={handleOpenAddGame} className="plus-button">
+    ➕ Add Game
+  </button>
+
+  {showAddGame && (
+    <div className="modal-overlay">
+      <div className="modal">
+        <AddGame onClose={handleCloseAddGame} />
+      </div>
+    </div>
+  )}
       <div className="card">
         <GradeSelector
           title="Select Grade"
@@ -74,7 +96,10 @@ const Randomizer = () => {
         <div className="divider"></div>
 
         {selectedGame && <GameDisplay game={selectedGame} />}
+        
       </div>
+     
+    
     </div>
   );
 };
