@@ -6,8 +6,10 @@ Simply enter the grade and class size and be provided with a fun warm up game.
 
 
 ## TODO
-* Connect game to hosted database
-* Host app 
-* Populate database with more data
-* Think of a more robust API
-* Protect app against vulnerabilities
+- [x] Build out base functionality
+- [ ] Populate database with more data 
+- [ ] Connect game to hosted database 
+- [ ] Host server and frontend somewhere 
+- [ ] Think of a more robust API
+- [ ] Protect app against vulnerabilities
+- [ ] Prettier frontend
