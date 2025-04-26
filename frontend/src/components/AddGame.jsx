@@ -17,12 +17,13 @@ const AddGame = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+        console.log("Hello", newGame)
       const response = await fetch("http://localhost:5001/add-game", {
         method: "POST",  // POST request to add a game
         headers: {
-          "Content-Type": "application/json", // specify content type as JSON
+          "Content-Type": "application/json", 
         },
-        body: JSON.stringify(newGame), // Convert the object to a JSON string
+        body: JSON.stringify(newGame), 
       });
 
       if (!response.ok) {
@@ -60,7 +61,6 @@ const AddGame = ({ onClose }) => {
         <option value="Any">Any</option>
       </select>
       <br></br>
-      {/* Grades dropdown */}
       <select
         name="classSize"
         value={newGame.classSize}
