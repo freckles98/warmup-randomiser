@@ -71,9 +71,9 @@ const Randomizer = () => {
 
   {showAddGame && (
     <div className="modal-overlay">
-      <div className="modal">
+      
         <AddGame onClose={handleCloseAddGame} />
-      </div>
+      
     </div>
   )}
       <div className="card">

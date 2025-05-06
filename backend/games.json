@@ -20,12 +20,29 @@
     "funFactor": 3
   },
   {
-    "name": "Happiness Game",
+    "name": "Balloon Pop",
+    "equipment": [],
     "grades": "Primary",
-    "classSize": "Medium",
-    "category": "Fun",
-    "description": "Children are happy",
-    "equipment": "none",
-    "funFactor": "5"
+    "classSize": "Any",
+    "category": "",
+    "description": "Draw Two Sets of Balloons  Draw ~10–12 balloons on the board for each team (Team A and Team B).  Number them if you want more control or surprises behind them.  Split the Class into Two Teams  Teams take turns answering questions (related to your current ESL lesson).  Ask a Question  Ask a student a question (vocab, grammar, translation, etc.).  If they answer correctly, they roll a virtual die (or real one).  Pop Balloons (Attack the Other Team!)  The number on the die = how many balloons they get to pop from the other team’s side.  Use a marker or eraser to “pop” (cross out) that number of balloons.  Winning the Game  The first team to lose all their balloons loses.",
+    "funFactor": 5
+  },
+  {
+    "name": "Pictionary",
+    "equipment": [],
+    "grades": "Any",
+    "classSize": "Any",
+    "category": "",
+    "description": "One player from each team draws a word or phrase on a board, while their teammates try to guess it, using only English. The first team to correctly guess the word gets a point, and they continue drawing until the time limit is up."
+  },
+  {
+    "name": "Two Truths and a Lie",
+    "equipment": [],
+    "grades": "High",
+    "classSize": "Any",
+    "category": "",
+    "description": "Each student thinks of 3 statements:\n\n2 True Statements\n\n1 False Statement\n\nShare your 3 statements with the class (in any order).\n\nClass guesses: Which statement is the lie?\n\nReveal the lie and explain your true statements!",
+    "funFactor": "4"
   }
 ]

@@ -15,8 +15,19 @@ const games = require("./games.json");
 const gamesFilePath = path.join(__dirname, "games.json");
 
 const readGames = async () => {
-  const data = await fs.promises.readFile(gamesFilePath, "utf8");
-  return JSON.parse(data);
+  if (!fs.existsSync(gamesFilePath)) {
+    return []; // return empty array if file doesn't exist
+  }
+
+  const data = fs.readFileSync(gamesFilePath, 'utf8');
+  try {
+    const parsed = JSON.parse(data);
+    console.log("legit array" , parsed)
+    return Array.isArray(parsed) ? parsed : []; // ensure it's an array
+  } catch (err) {
+    console.error('Invalid JSON in games file:', err);
+    return [];
+  }
 };
 
 // Function to write updated games to the file
@@ -44,7 +55,7 @@ app.get("/random-game", (req, res) => {
   }
 });
 
-
+const Game = require('./models/Game');
 
 app.post("/add-game", [
   body("name").isString().notEmpty(),
@@ -54,15 +65,16 @@ app.post("/add-game", [
   body("description").isString().optional(),
   body("equipment").isArray().optional(),
   body("funFactor").isInt({ min: 1, max: 5 }).optional()
-], (req, res) => {
+], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-  const newGame = req.body; // This will contain the new game data sent by the frontend
+  const newGame = new Game(req.body);
 
   // Read existing games from the file
-  const games = readGames();
+  const games = await readGames();
+  console.log(games)
 
   // Add the new game to the games array
   games.push(newGame);
